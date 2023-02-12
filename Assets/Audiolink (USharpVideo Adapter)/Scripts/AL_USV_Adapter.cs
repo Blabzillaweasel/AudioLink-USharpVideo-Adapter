@@ -12,21 +12,23 @@ public class AL_USV_Adapter: UdonSharpBehaviour
 	public AudioSource videoAudioSource;
 	public AudioSource streamAudioSource;
 	
-	private void Start()
-    {
-		UnityEngine.Debug.Log("Timer started");
-		Timer();
-    }
-    
-    public void Timer()
-    {
-		CheckVideoMode();
-		SendCustomEventDelayedSeconds(nameof(Timer), 3f);
-    }
 	
-	//Checks if the USVPlayer is in Stream mode
-	public void CheckVideoMode()
+	//Registers to the USharpVideoPlayers events
+	public void Start()
 	{
+		videoPlayer.RegisterCallbackReceiver(this);
+	}
+	
+	//Calls the CheckVidPlayer method any time a video begins loading.
+	public void OnUSharpVideoLoadStart()
+	{
+		CheckVidPlayerMode();
+	}
+	
+	//Checks if the USVPlayer is in Stream mode, and adjusts the Audiolink audiosource if necessary
+	public void CheckVidPlayerMode()
+	{
+		//Checks if the USVPlayer is in Stream mode
 		if (videoPlayer.IsUsingAVProPlayer())
 		{
 			//Announces the state of stream mode
@@ -36,7 +38,7 @@ public class AL_USV_Adapter: UdonSharpBehaviour
 			if (audioLink.audioSource == streamAudioSource)
 			{
 				Debug.Log("[<color=#ff00c6>USV_Audiolink_Adapter</color>]" + "No action necessary, the player is in stream mode and Audiolink is already set to " + audioLink.audioSource.name);
-				return;;
+				return;
 			}
 				
 				else
