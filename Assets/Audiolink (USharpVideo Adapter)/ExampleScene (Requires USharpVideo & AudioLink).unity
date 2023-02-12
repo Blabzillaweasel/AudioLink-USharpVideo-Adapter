@@ -1463,6 +1463,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8619964974682036150, guid: 41b7f56ac332dba4db081cba05ac4be3,
+        type: 3}
+      propertyPath: _syncMethod
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8619964974682036151, guid: 41b7f56ac332dba4db081cba05ac4be3,
         type: 3}
       propertyPath: audioLink
