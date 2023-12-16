@@ -3,8 +3,16 @@
 This is a simple adapter plugin for Audiolink that allows Audiolink to integrate with USharpVideo players, specifically when switching between video and stream mode.
 
 ## Installation
-1. Import the Unity Package into your project.
-2. Place the prefab into your scene.
-3. Select the prefab in your scene.
-4. Link the USharpVideo Player, Audiolink object, and each audio source. (for stream select either L or R)
-5. You're now ready to go!
+
+1. Ensure the Audiolink prefab is in your scene.
+2. Ensure the USharpVideoPlayer prefab is in your scene.
+
+3. Import the Audiolink (USharpVideo Adapter) unity package into your project found in releases.
+4. Place the Audiolink (USharpVideo Adapter) prefab into your scene.
+5. Select the Audiolink (USharpVideo Adapter) prefab in your scene.
+
+6. In the Unity inspector window, link Video Player to "USharpVideo"
+7. Link Audio Link to "AudioLink".
+8. Link Video Audio Source to "VideoAudioSource".
+9. Link Stream Audio Source to "StreamAudioSourceR".
+10. You're now ready to go!
